@@ -1,6 +1,6 @@
 # MINI TECH TITANS BATTLESHIP PROJECT
 *****
-### Authors : Lisa Auta, Shaline Chepkoech, Blessing Mwendwa, Cornelius Kaptuwai, Andrew Ambuka, Ibrahim Hassan  
+### Authors : Lisa Auta, Shaline Chepkoech, Blessing Mwendwa, Cornelius Kaptuwai, Andrew Ambuka, Ibrahim Hassan
 ## Date: October 17th 2024
 ****
 ## Project Description
@@ -46,6 +46,7 @@ Game Mechanics: Implementation of traditional Battleship rules, including ship p
 ## Contact Information
 * Email : chepkoechshaline726@gmail.com
 * Email : hassanibrahimndahiro@gmail.com
+* Email : lisaauta018@gmail.com
 *****
 ## [License](LICENSE)
 MIT License
