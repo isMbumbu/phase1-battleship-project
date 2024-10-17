@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
     // Variable declaration and creation of main divs
     const boards = document.getElementById('grids');
@@ -75,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Function to place ships on the player's board
-    function placeShips(gridElement) {
+    function placeShips(gridElement, showships = false) {
         const gridCells = Array.from(gridElement.querySelectorAll('div'));
         const shipPositions = [
             [26, 27],       // Destroyer
@@ -87,17 +88,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
         shipPositions.forEach((shipCells) => {
             shipCells.forEach((index) => {
-                gridCells[index].classList.add("ship");
                 const cell = gridCells[index];
-                cell.style.backgroundColor = "gray"; // Ship color
-                cell.style.border = "0.1px solid black"; // Border for visibility
+                cell.classList.add("ship");
+                
+                if (showships) {
+                    // If showShips is true, make the ships visible
+                    cell.style.backgroundColor = "gray"; // Ship color
+                    cell.style.border = "0.1px solid black"; // Border for visibility
+                }
             });
         });
     }
 
     createBoard(playerGrid);
     createBoard(opponentGrid);
-    placeShips(playerGrid);
+    // Place ships on player's grid (visible)
+    placeShips(playerGrid, true);
+
+    // Place ships on opponent's grid (hidden)
+    placeShips(opponentGrid, false); // Hide ships on opponent's grid
 
 
     function handleGuess(event) {
@@ -137,6 +146,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     addGuessingEvent(opponentGrid); // Apply guessing event to opponent's grid
 });
+
+
+
+
 
 
 
