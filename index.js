@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
     // Variable declaration and creation of main divs
     const boards = document.getElementById('grids');
@@ -16,22 +15,18 @@ document.addEventListener("DOMContentLoaded", () => {
     opponentGrid.classList.add('grid'); // Add a class for styling
     boards.appendChild(opponentGrid);
 
-    // To help formulate ids for cells
     const letters = "ABCDEFGHIJ";
 
     // Function for creation of boards with headers
     function createBoard(gridPosition) {
-        // Create header row
         let headerRow = document.createElement('div');
         headerRow.style.display = 'flex';
 
-        // Empty corner cell
         let cornerCell = document.createElement('div');
         cornerCell.style.width = '40px';
         cornerCell.style.height = '40px';
         headerRow.appendChild(cornerCell);
 
-        // Add letter headers
         for (let c = 0; c < 10; c++) {
             let headerCell = document.createElement('div');
             headerCell.innerText = letters[c];
@@ -52,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
             let row = document.createElement('div');
             row.style.display = 'flex';
 
-            // Row header (number)
             let rowHeader = document.createElement('div');
             rowHeader.innerText = r;
             rowHeader.style.border = '1px solid black';
@@ -68,74 +62,84 @@ document.addEventListener("DOMContentLoaded", () => {
                 let column = document.createElement('div');
                 column.id = letters[c - 1] + r; // Adjust index to match letters
                 column.style.border = '1px solid black';
-                column.style.height = '40px'; // Increased size for better visibility
-                column.style.width = '40px'; // Increased size for better visibility
-                column.style.display = 'flex'; // Flex for potential alignment
-                column.style.alignItems = 'center'; // Center items vertically
-                column.style.justifyContent = 'center'; // Center items horizontally
+                column.style.height = '40px';
+                column.style.width = '40px';
+                column.style.display = 'flex'; 
+                column.style.alignItems = 'center'; 
+                column.style.justifyContent = 'center'; 
                 row.appendChild(column);
             }
 
             gridPosition.appendChild(row); // Append the row to the grid
         }
     }
-    //placing sheeps on hard coded location
 
-    //to get all grid cells
+    // Function to place ships on the player's board
+    function placeShips(gridElement) {
+        const gridCells = Array.from(gridElement.querySelectorAll('div'));
+        const shipPositions = [
+            [26, 27],       // Destroyer
+            [53, 54, 55],   // Submarine
+            [80, 92, 104],  // Cruiser
+            [111, 112, 113, 114], // Battleship
+            [86, 87, 88, 89, 90]  // Carrier
+        ];
 
-    function placeShips(gridElement){
-    const gridCells = Array.from(gridElement.querySelectorAll('div'));
-        
-    // hard coding the ship positions on specific cells
-        
-      const shipPositions = [
-        //destroyer cordinates
-        [26,27,],
-        //submarine and cruiser
-        [53,54,55],
-        [80,92,104],
-        //battleship four squares
-        [111,112,113,114,],
-        //carrier
-        [86,87,88,89,90],
-  
-      ];
-      //placing ships based on hard coded positions
-  
-      shipPositions.forEach((shipCells) =>{
-        shipCells.forEach((index) => {
-          gridCells[index].classList.add("ship");
-          const cell = gridCells[index];
-          cell.style.backgroundColor = "gray"; // Ship color
-          cell.style.border = "0.1px solid black"; // Border for visibility
-          cell.style.position = "relative"; // Allow for positioning
-        //   cell.style.zIndex = "10";
+        shipPositions.forEach((shipCells) => {
+            shipCells.forEach((index) => {
+                gridCells[index].classList.add("ship");
+                const cell = gridCells[index];
+                cell.style.backgroundColor = "gray"; // Ship color
+                cell.style.border = "0.1px solid black"; // Border for visibility
+            });
         });
-      })
-      
-
-
-      }
-    
-    
+    }
 
     createBoard(playerGrid);
     createBoard(opponentGrid);
     placeShips(playerGrid);
 
+
+    function handleGuess(event) {
+        const cell = event.target;
+        if (cell.classList.contains('ship')) {
+            cell.style.backgroundColor = 'red'; // Indicate a hit
+            displayMessage('Hit!', cell);
+        } else {
+            cell.style.backgroundColor = 'blue'; // Indicate a miss
+            displayMessage('Miss!', cell);
+        }
+    }
+
     function addGuessingEvent(gridElement) {
-      const gridCells = Array.from(gridElement.querySelectorAll('div')); // Get all cells within the grid
-      gridCells.forEach((cell) => {
-          cell.addEventListener("click", handleGuess); // Add click event listener to each cell
-      });
-  }
+        const gridCells = Array.from(gridElement.querySelectorAll('div'));
+        gridCells.forEach((cell) => {
+            cell.addEventListener("click", handleGuess);
+        });
+    }
+    function displayMessage(message, cell) {
+        const messageDiv = document.createElement('div');
+        messageDiv.innerText = message;
+        messageDiv.style.position = 'absolute';
+        messageDiv.style.top = `${cell.offsetTop}px`;
+        messageDiv.style.left = `${cell.offsetLeft}px`;
+        messageDiv.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+        messageDiv.style.padding = '5px';
+        messageDiv.style.border = '1px solid black';
+        messageDiv.style.zIndex = '1000'; // Make sure it's on top
 
-  addGuessingEvent(opponentGrid); // Apply guessing event to opponent's grid
+        opponentGrid.appendChild(messageDiv);
 
+        setTimeout(() => {
+            opponentGrid.removeChild(messageDiv);
+        }, 1000); // Message displayed for 1 second
+    }
 
-
-  
+    addGuessingEvent(opponentGrid); // Apply guessing event to opponent's grid
 });
+
+
+
 
 
 
