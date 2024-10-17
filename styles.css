@@ -1,0 +1,62 @@
+body{
+    background: linear-gradient(to bottom, #98eeee, #00ced1, #881963 , #52063f);
+    background-blend-mode: overlay;
+
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1300px; /* Use max-width for better responsiveness */
+	margin: 0 auto; /* Center container */
+    position: relative;
+    left: 260px;
+    background-color: beige;
+    padding: 15px;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1{
+    position: relative;
+    text-align: center;
+    text-decoration-style: wavy;
+    text-decoration-line: underline;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+img{
+	border-radius: 10px;
+    margin: 20px 0; /* Use margin instead of position */
+    max-width: 100%; /* Responsive image */
+    height: auto; /* Maintain aspect ratio */ 
+}
+
+h3{
+    text-decoration-style: solid;
+    text-decoration-line: underline;
+	margin-top: 20px;
+}
+
+a {
+    color: #007BFF; /* Link color */
+    text-decoration: none; /* Remove default underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: #0056b3; /* Darker color on hover */
+}
+
+p {
+    line-height: 1.6; /* Improve line spacing */
+    margin: 10px 0; /* Space between paragraphs */
+}
+
+h1, h3 {
+    color: #2c3e50; /* Darker color for better contrast */
+}
+
+
