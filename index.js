@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
     // Variable declaration and creation of main divs
     const boards = document.getElementById('grids');
@@ -111,11 +112,31 @@ document.addEventListener("DOMContentLoaded", () => {
         //   cell.style.zIndex = "10";
         });
       })
-  
+      
+
+
       }
+    
+    
 
     createBoard(playerGrid);
     createBoard(opponentGrid);
     placeShips(playerGrid);
+
+    function addGuessingEvent(gridElement) {
+      const gridCells = Array.from(gridElement.querySelectorAll('div')); // Get all cells within the grid
+      gridCells.forEach((cell) => {
+          cell.addEventListener("click", handleGuess); // Add click event listener to each cell
+      });
+  }
+
+  addGuessingEvent(opponentGrid); // Apply guessing event to opponent's grid
+
+
+
+  
 });
+
+
+
 
