@@ -78,14 +78,14 @@ document.addEventListener("DOMContentLoaded", () => {
             gridPosition.appendChild(row); // Append the row to the grid
         }
     }
-      //placing sheeps on hard coded location
+    //placing sheeps on hard coded location
 
     //to get all grid cells
 
     function placeShips(gridElement){
-        const gridCells = Array.from(gridElement.children);
+    const gridCells = Array.from(gridElement.children);
         
-        // hard coding the ship positions on specific cells
+    // hard coding the ship positions on specific cells
         
       const shipPositions = [
         //destroyer cordinates
