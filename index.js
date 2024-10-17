@@ -78,7 +78,38 @@ document.addEventListener("DOMContentLoaded", () => {
             gridPosition.appendChild(row); // Append the row to the grid
         }
     }
+      //placing sheeps on hard coded location
+
+    //to get all grid cells
+
+    function placeShips(gridElement){
+        const gridCells = Array.from(gridElement.children);
+        
+        // hard coding the ship positions on specific cells
+        
+      const shipPositions = [
+        //destroyer cordinates
+        [61, 62],
+        //submarine and cruiser
+        [10, 20, 30],
+        [15, 16, 17],
+        //battleship four squares
+        [50, 60, 70, 80,],
+        //carrier
+        [, 1, 2, 3, 4, 5,],
+  
+      ];
+      //placing ships based on hard coded positions
+  
+      shipPositions.forEach((shipCells) =>{
+        shipCells.forEach((index) => {
+          gridCells[index].classList.add("ship");
+        });
+      })
+  
+      }
 
     createBoard(playerGrid);
     createBoard(opponentGrid);
 });
+
