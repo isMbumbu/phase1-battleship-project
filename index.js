@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
     // hard coding the ship positions on specific cells
         
-      const shipPositions = [
+    const shipPositions = [
         //destroyer cordinates
         [61, 62],
         //submarine and cruiser
