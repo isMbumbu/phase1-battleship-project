@@ -40,8 +40,8 @@ Game Mechanics: Implementation of traditional Battleship rules, including ship p
 > Run using live server
 *****
 ## Technologies Used
-Programming Languages: JavaScript, HTML, CSS for front-end development.
-Version Control: Git and GitHub for collaboration and version management.
+1. Programming Languages: JavaScript, HTML, CSS for front-end development.
+2. Version Control: Git and GitHub for collaboration and version management.
 *****
 ## Contact Information
 * Email : chepkoechshaline726@gmail.com
