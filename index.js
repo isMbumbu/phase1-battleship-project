@@ -83,20 +83,20 @@ document.addEventListener("DOMContentLoaded", () => {
     //to get all grid cells
 
     function placeShips(gridElement){
-    const gridCells = Array.from(gridElement.children);
+    const gridCells = Array.from(gridElement.querySelectorAll('div'));
         
     // hard coding the ship positions on specific cells
         
-    const shipPositions = [
+      const shipPositions = [
         //destroyer cordinates
-        [61, 62],
+        [26,27,],
         //submarine and cruiser
-        [10, 20, 30],
-        [15, 16, 17],
+        [53,54,55],
+        [80,92,104],
         //battleship four squares
-        [50, 60, 70, 80,],
+        [111,112,113,114,],
         //carrier
-        [, 1, 2, 3, 4, 5,],
+        [86,87,88,89,90],
   
       ];
       //placing ships based on hard coded positions
@@ -104,6 +104,11 @@ document.addEventListener("DOMContentLoaded", () => {
       shipPositions.forEach((shipCells) =>{
         shipCells.forEach((index) => {
           gridCells[index].classList.add("ship");
+          const cell = gridCells[index];
+          cell.style.backgroundColor = "gray"; // Ship color
+          cell.style.border = "0.1px solid black"; // Border for visibility
+          cell.style.position = "relative"; // Allow for positioning
+        //   cell.style.zIndex = "10";
         });
       })
   
@@ -111,5 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     createBoard(playerGrid);
     createBoard(opponentGrid);
+    placeShips(playerGrid);
 });
 
