@@ -45,6 +45,7 @@ Game Mechanics: Implementation of traditional Battleship rules, including ship p
 *****
 ## Contact Information
 * Email : chepkoechshaline726@gmail.com
+* Email : hassanibrahimndahiro@gmail.com
 *****
 ## [License](LICENSE)
 MIT License
