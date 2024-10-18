@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             headerCell.style.display = 'flex';
             headerCell.style.alignItems = 'center';
             headerCell.style.justifyContent = 'center';
-            headerCell.style.backgroundColor='green';
+            headerCell.style.backgroundColor='#ADD8E6';
             headerRow.appendChild(headerCell);
         }
 
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
             rowHeader.style.display = 'flex';
             rowHeader.style.alignItems = 'center';
             rowHeader.style.justifyContent = 'center';
-            rowHeader.style.backgroundColor='green';
+            rowHeader.style.backgroundColor='#ADD8E6';
             row.appendChild(rowHeader);
 
             for (let c = 1; c < 11; c++) {
