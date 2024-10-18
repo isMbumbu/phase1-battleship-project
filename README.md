@@ -49,6 +49,7 @@ Game Mechanics: Implementation of traditional Battleship rules, including ship p
 * Email : lisaauta018@gmail.com
 * Email : ambukaa93@gmail.com
 * Email : kapslogo18@gmail.com
+* Email : mwendwablessingm@gmail.com
 *****
 ## [License](LICENSE)
 MIT License
