@@ -6,15 +6,29 @@ document.addEventListener("DOMContentLoaded", () => {
     boards.style.justifyContent = 'space-around'; // Space between the grids
     boards.style.padding = '20px'; // Add some padding around the boards
 
+    // Create a container for Player's Grid with a title
+    const playerGridWrapper = document.createElement('div');
+    const playerGridTitle = document.createElement('h3');
+    playerGridTitle.innerText = "Player's Grid";
+    playerGridWrapper.appendChild(playerGridTitle);
+
     const playerGrid = document.createElement('div');
     playerGrid.id = 'player-grid';
     playerGrid.classList.add('grid'); // Add a class for styling
-    boards.appendChild(playerGrid);
+    playerGridWrapper.appendChild(playerGrid);
+    boards.appendChild(playerGridWrapper);
+
+    // Create a container for Opponent's Grid with a title
+    const opponentGridWrapper = document.createElement('div');
+    const opponentGridTitle = document.createElement('h3');
+    opponentGridTitle.innerText = "Opponent's Grid";
+    opponentGridWrapper.appendChild(opponentGridTitle);
 
     const opponentGrid = document.createElement('div');
     opponentGrid.id = 'opponent-grid';
     opponentGrid.classList.add('grid'); // Add a class for styling
-    boards.appendChild(opponentGrid);
+    opponentGridWrapper.appendChild(opponentGrid);
+    boards.appendChild(opponentGridWrapper);
 
     const letters = "ABCDEFGHIJ";
 
@@ -37,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             headerCell.style.display = 'flex';
             headerCell.style.alignItems = 'center';
             headerCell.style.justifyContent = 'center';
-            headerCell.style.backgroundColor='#ADD8E6';
+            headerCell.style.backgroundColor = '#ADD8E6';
             headerRow.appendChild(headerCell);
         }
 
@@ -56,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
             rowHeader.style.display = 'flex';
             rowHeader.style.alignItems = 'center';
             rowHeader.style.justifyContent = 'center';
-            rowHeader.style.backgroundColor='#ADD8E6';
+            rowHeader.style.backgroundColor = '#ADD8E6';
             row.appendChild(rowHeader);
 
             for (let c = 1; c < 11; c++) {
@@ -108,7 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Place ships on opponent's grid (hidden)
     placeShips(opponentGrid, false); // Hide ships on opponent's grid
 
-
     function handleGuess(event) {
         const cell = event.target;
         if (cell.classList.contains('ship')) {
@@ -126,6 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
             cell.addEventListener("click", handleGuess);
         });
     }
+
     function displayMessage(message, cell) {
         const messageDiv = document.createElement('div');
         messageDiv.innerText = message;
@@ -146,14 +160,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
     addGuessingEvent(opponentGrid); // Apply guessing event to opponent's grid
 });
-
-
-
-
-
-
-
-
-
-
-
